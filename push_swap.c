@@ -6,7 +6,7 @@
 /*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 10:47:44 by cmansey           #+#    #+#             */
-/*   Updated: 2022/12/20 15:20:20 by cmansey          ###   ########.fr       */
+/*   Updated: 2022/12/20 15:23:00 by cmansey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,9 @@ void	push_to_other_list(t_node *from, t_node **to)
 	delete_node(from);
 	if (to)
 	{
-		stock = tp->prev;
+		stock = to->prev;
 		to->prev = save;
-		tp->prev->next = to;
+		to->prev->next = to;
 		to->prev->prev = stock;
 		to->prev->prev->next = save;
 		to = to->prev;
