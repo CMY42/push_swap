@@ -6,7 +6,7 @@
 /*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 10:47:44 by cmansey           #+#    #+#             */
-/*   Updated: 2022/12/20 15:23:00 by cmansey          ###   ########.fr       */
+/*   Updated: 2022/12/22 11:04:59 by cmansey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,25 @@ struct node	*set_list(char **av)
 	return (node);
 }
 
-//RAJOUTER UN IF
+//Pour ajouter d'autres node
+//Nouveau node avec le int et pointe vers le premier node
 void	others_nodes(av, node_first, node_last, node)
 {
 	t_node	*node_next;
+	int		i;
 
-	node_next = malloc(sizeof(t_node));
-	node_next->data = ft_atoi(av[1]);
-	node_next->next = node_first;
-	node->next = node_next;
-	node_last = node;
-	node = node->next;
-	node->prev = node_last;
+	i = 2;
+	while (av[i] != NULL)
+	{
+		node_next = malloc(sizeof(t_node));
+		node_next->data = ft_atoi(av[i]);
+		node_next->next = node_first;
+		node->next = node_next;
+		node_last = node;
+		node = node->next;
+		node->prev = node_last;
+		i++;
+	}
 }
 
 //Verifie si liste chainee contient seulement un ou plusieurs nodes
@@ -119,8 +126,25 @@ void	end_to_first(t_node *list)
 	list = list->prev;
 }
 
+//va checker si la liste est deja dans l'ordre
+bool is_sorted_list(t_node *list_a, int args_number)
+{
+	bool	is_sort;
+	t_node	*current;
 
-
+	is_sort = true;
+	current = list_a;
+	while (current->next != NULL)
+	{
+		if (current->data < current->next->data)
+		{
+			is_sort = false;
+			break ;
+		}
+		current = current->next;
+	}
+	return (is_sort);
+}
 
 
 //premiere fonction on va mettre les chiffres dans la stakc A si pas erreur

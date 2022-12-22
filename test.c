@@ -37,8 +37,3 @@ Liste *initialisation ()
 
 	return liste;
 }
-
-struct element
-{
-	int	a;
-};
