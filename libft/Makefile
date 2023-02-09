@@ -6,7 +6,7 @@
 #    By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 12:01:18 by cmansey           #+#    #+#              #
-#    Updated: 2022/11/07 11:07:38 by cmansey          ###   ########.fr        #
+#    Updated: 2023/02/09 13:32:05 by cmansey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,8 @@ AR = ar -rcs
 
 CFLAGS = -Wall -Wextra -Werror
 
-.c.o:
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)

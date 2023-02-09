@@ -6,13 +6,13 @@
 #    By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 12:01:18 by cmansey           #+#    #+#              #
-#    Updated: 2022/12/14 11:25:49 by cmansey          ###   ########.fr        #
+#    Updated: 2023/02/09 13:40:11 by cmansey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRCS =
+SRCS = main.c check_num.c
 
 all: $(NAME)
 
@@ -32,12 +32,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 $(NAME): $(OBJS)
 	@make -C $(LIBFT)
-	@make -C $(PRINTF)
-	@cp libft/libft.a .
-	@cp printf/libftprintf.a .
-	@mv libft.a $(NAME)
-	@mv printf.a $(NAME)
-	$(AR) $(NAME) $(OBJS)
+	$(CC) $^ -Llibft -lft -o $(NAME)
 
 clean:
 	$(RM) $(OBJS)
@@ -46,7 +41,6 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 	@$(RM) -f $(LIBFT)/libft.a
-	@$(RM) -f $(PRINTF)/libftprintf.a
 
 re: fclean all
 

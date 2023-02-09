@@ -6,7 +6,7 @@
 /*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 10:45:51 by cmansey           #+#    #+#             */
-/*   Updated: 2022/12/22 10:46:29 by cmansey          ###   ########.fr       */
+/*   Updated: 2023/02/09 13:18:48 by cmansey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include "libft/libft.h"
+
+void	ft_check_args(int argc, char **argv);
 
 #endif
