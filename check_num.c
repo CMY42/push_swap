@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   check_num.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 10:16:49 by cmansey           #+#    #+#             */
-/*   Updated: 2023/02/09 13:20:44 by cmansey          ###   ########.fr       */
+/*   Updated: 2023/02/21 17:01:40 by cmansey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	ft_check_ifnum(char *num)
 	{
 		if (!ft_isdigit(num[i]))
 			return (0);
-			i ++;
+		i ++;
 	}
 	return (1);
 }
@@ -47,9 +47,9 @@ static int	ft_check_ifnum(char *num)
 
 void	ft_check_args(int argc, char **argv)
 {
-	int		i;
-	int		tmp;
-	char	**arg;
+	int			i;
+	long int	tmp;
+	char		**arg;
 
 	i = 1;
 	if (argc == 2)
@@ -63,7 +63,7 @@ void	ft_check_args(int argc, char **argv)
 			write(2, "Error/n", 6);
 		if (ft_check_double(tmp, arg, i))
 			write(2, "Error/n", 6);
-		if (tmp < -2147483648 || tmp > 2147483647)
+		if ((tmp < -2147483648) || (tmp > 2147483647))
 			write(2, "Error/n", 6);
 		i++;
 	}

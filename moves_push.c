@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   moves_push.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 10:45:51 by cmansey           #+#    #+#             */
-/*   Updated: 2023/02/21 17:54:37 by cmansey          ###   ########.fr       */
+/*   Created: 2023/02/20 18:16:33 by cmansey           #+#    #+#             */
+/*   Updated: 2023/02/21 16:43:27 by cmansey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <string.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include "libft/libft.h"
+void	push_a(int *sta, int*stb)
+{
 
-void	ft_check_args(int argc, char **argv);
-void	swap_a(long *sta);
-
-#endif
+}

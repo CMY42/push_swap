@@ -6,7 +6,7 @@
 /*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:36:30 by cmansey           #+#    #+#             */
-/*   Updated: 2023/02/09 13:46:45 by cmansey          ###   ########.fr       */
+/*   Updated: 2023/02/21 17:56:35 by cmansey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 
 int	main(int argc, char **argv)
 {
-	int	i;
-	int	*stack_a;
-	int	*stack_b;
+	int		i;
+	long	*stack_a;
+	long	*stack_b;
 
 	if (argc < 2)
 		exit(0);
 	ft_check_args(argc, argv);
-	stack_a = malloc(sizeof (int) * argc);
-	stack_b = malloc(sizeof (int) * argc);
+	stack_a = malloc(sizeof (int) * (argc - 1));
+	stack_b = malloc(sizeof (int) * (argc - 1));
 	if (!stack_a || !stack_b)
 	{
 		return (0);
@@ -37,6 +37,26 @@ int	main(int argc, char **argv)
 		stack_b[i - 1] = 0;
 			i++;
 	}
+	i = 0;
+	while (i != (argc -1))
+	{
+		printf("%ld\n", stack_a[i]);
+		i++;
+	}
+	if (argc > 3)
+		swap_a(stack_a);
+	i = 0;
+	while (i != (argc -1))
+	{
+		printf("%ld\n", stack_a[i]);
+		i++;
+	}
+	/*j = 0;
+	while (j < i)
+	{
+		printf("%d\n", stack_b[j]);
+		j++;
+	}*/
 }
 
 /*{
