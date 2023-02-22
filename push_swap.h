@@ -6,7 +6,7 @@
 /*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 10:45:51 by cmansey           #+#    #+#             */
-/*   Updated: 2023/02/22 17:10:17 by cmansey          ###   ########.fr       */
+/*   Updated: 2023/02/22 18:48:06 by cmansey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	push_a(long *sta, long *stb, int *nb_sta, int *nb_stb);
 void	push_b(long *sta, long *stb, int *nb_sta, int *nb_stb);
 void	rotate_a(long *sta, int *nb_sta);
 void	rev_rotate_a(long *sta, int *nb_sta);
-void	three_numbers(long *sta);
+void	three_numbers(long *sta, int *nb_sta);
+void	five_numbers(long *sta, long *stb, int *nb_sta, int *nb_stb);
 
 #endif

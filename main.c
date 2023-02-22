@@ -6,7 +6,7 @@
 /*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:36:30 by cmansey           #+#    #+#             */
-/*   Updated: 2023/02/22 17:10:50 by cmansey          ###   ########.fr       */
+/*   Updated: 2023/02/22 18:52:22 by cmansey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,11 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	if (argc > 3)
-		three_numbers(stack_a);
+		five_numbers(stack_a, stack_b, nb_sta, nb_stb);
 	i = 0;
 	while (i != (argc -1))
 	{
 		printf("%ld\n", stack_a[i]);
-		i++;
-	}
-	i = 0;
-	while (i != (argc -1))
-	{
-		printf("%ld\n", stack_b[i]);
 		i++;
 	}
 	/*j = 0;

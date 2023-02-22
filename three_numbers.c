@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   3_numbers.c                                        :+:      :+:    :+:   */
+/*   three_numbers.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:02:11 by cmansey           #+#    #+#             */
-/*   Updated: 2023/02/22 17:09:46 by cmansey          ###   ########.fr       */
+/*   Updated: 2023/02/22 17:53:47 by cmansey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	three_numbers(long *sta)
+void	three_numbers(long *sta, int *nb_sta)
 {
-	if ((sta[0] > sta[1]) && (sta[0] > sta[2]))
-		swap_a(*sta);
-	if ((sta[0] > sta[1]) && (sta[1] > sta[2]))
+	if ((sta[0] > sta[1]) && (sta[0] < sta[2]) && (sta[1] < sta[2]))
+		swap_a(sta, nb_sta);
+	else if ((sta[0] > sta[1]) && (sta[1] > sta[2]) && (sta[0] > sta[2]))
 	{
-		swap_a(*sta);
-		rev_rotate_a(*sta);
+		swap_a(sta, nb_sta);
+		rev_rotate_a(sta, nb_sta);
 	}
-	if ((sta[0] > sta[1]) && (sta[1] < sta[2]))
-		rotate_a(*sta);
-	if ((sta[0] > sta[1]) && (sta[1] > sta[2]))
+	else if ((sta[0] > sta[1]) && (sta[1] < sta[2]) && (sta[0] > sta[2]))
+		rotate_a(sta, nb_sta);
+	else if ((sta[0] < sta[1]) && (sta[1] > sta[2]) && (sta[0] < sta[2]))
 	{
-		swap_a(*sta);
-		rotate_a(*sta);
+		swap_a(sta, nb_sta);
+		rotate_a(sta, nb_sta);
 	}
-	if ((sta[0] < sta[1]) && (sta[1] > sta[2]))
-		rev_rotate_a(*sta);
+	else if ((sta[0] < sta[1]) && (sta[1] > sta[2]) && (sta[0] > sta[2]))
+		rev_rotate_a(sta, nb_sta);
 }
-
-
-
-
