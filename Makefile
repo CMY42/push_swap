@@ -6,13 +6,13 @@
 #    By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 12:01:18 by cmansey           #+#    #+#              #
-#    Updated: 2023/02/21 17:38:01 by cmansey          ###   ########.fr        #
+#    Updated: 2023/02/22 16:52:13 by cmansey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRCS = main.c check_num.c moves_swap.c
+SRCS = main.c check_num.c moves_swap.c moves_push.c moves_rotate.c moves_rev_rotate.c
 
 all: $(NAME)
 

@@ -6,24 +6,39 @@
 /*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:36:30 by cmansey           #+#    #+#             */
-/*   Updated: 2023/02/21 17:56:35 by cmansey          ###   ########.fr       */
+/*   Updated: 2023/02/22 17:10:50 by cmansey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 //voir si tri deja effectue
 
+void	set_nb(int *nb_sta, int *nb_stb, int argc)
+{
+	*nb_sta = argc -1;
+	*nb_stb = 0;
+}
+
 int	main(int argc, char **argv)
 {
 	int		i;
 	long	*stack_a;
 	long	*stack_b;
+	int		*nb_sta;
+	int		*nb_stb;
 
-	if (argc < 2)
-		exit(0);
+	nb_sta = malloc(sizeof(int));
+	nb_stb = malloc(sizeof(int));
+	if (!nb_sta || !nb_stb)
+	{
+		return (0);
+		free (nb_sta);
+		free (nb_stb);
+	}
+	set_nb(nb_sta, nb_stb, argc);
 	ft_check_args(argc, argv);
-	stack_a = malloc(sizeof (int) * (argc - 1));
-	stack_b = malloc(sizeof (int) * (argc - 1));
+	stack_a = malloc(sizeof(long) * (argc - 1));
+	stack_b = malloc(sizeof(long) * (argc - 1));
 	if (!stack_a || !stack_b)
 	{
 		return (0);
@@ -44,11 +59,17 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	if (argc > 3)
-		swap_a(stack_a);
+		three_numbers(stack_a);
 	i = 0;
 	while (i != (argc -1))
 	{
 		printf("%ld\n", stack_a[i]);
+		i++;
+	}
+	i = 0;
+	while (i != (argc -1))
+	{
+		printf("%ld\n", stack_b[i]);
 		i++;
 	}
 	/*j = 0;
