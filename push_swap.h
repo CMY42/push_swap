@@ -6,7 +6,7 @@
 /*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 10:45:51 by cmansey           #+#    #+#             */
-/*   Updated: 2023/02/22 18:48:06 by cmansey          ###   ########.fr       */
+/*   Updated: 2023/02/27 19:16:00 by cmansey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,20 @@
 # include "libft/libft.h"
 
 void	ft_check_args(int argc, char **argv);
+void	free_nb(int *nb_sta, int *nb_stb);
+void	free_stack(long *stack_a, long *stack_b);
+int		size_stack(int argc, char **argv);
+
 void	swap_a(long *sta, int *nb_sta);
 void	push_a(long *sta, long *stb, int *nb_sta, int *nb_stb);
 void	push_b(long *sta, long *stb, int *nb_sta, int *nb_stb);
 void	rotate_a(long *sta, int *nb_sta);
 void	rev_rotate_a(long *sta, int *nb_sta);
+void	push_and_rotate_a(long *sta, long *stb, int *nb_sta, int *nb_stb);
+
 void	three_numbers(long *sta, int *nb_sta);
+void	four_numbers(long *sta, long *stb, int *nb_sta, int *nb_stb);
 void	five_numbers(long *sta, long *stb, int *nb_sta, int *nb_stb);
+void	six_and_more(long *sta, long *stb, int *nb_sta, int *nb_stb);
 
 #endif

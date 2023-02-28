@@ -6,78 +6,108 @@
 /*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:06:24 by cmansey           #+#    #+#             */
-/*   Updated: 2022/11/07 14:43:48 by cmansey          ###   ########.fr       */
+/*   Updated: 2023/02/28 12:19:32 by cmansey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_count(char const *s, char c)
+int	ft_count_str(char *str, char c)
 {
-	int	i;
-	int	word;
+	int		i;
+	int		count;
+	int		new_word;
 
 	i = 0;
-	word = 0;
-	while (s && s[i])
+	count = 0;
+	while (str[i] != '\0')
 	{
-		if (s[i] != c)
-		{
-			word++;
-			while (s[i] != c && s[i])
-				i++;
-		}
-		else
+		new_word = 0;
+		while (str[i] == c && str[i] != '\0')
 			i++;
+		while (str[i] != c && str[i] != '\0')
+		{
+			new_word = 1;
+			i++;
+		}
+		if (new_word == 1)
+			count++;
 	}
-	return (word);
+	return (count);
 }
 
-static int	ft_size(char const *s, char c, int i)
+static int	ft_allocate_memory(char **strs, char *str, char c)
 {
-	int	t;
+	int		i;
+	int		nb_letter;
+	int		count_word;
 
-	t = 0;
-	while (s[i] != c && s[i])
+	i = 0;
+	count_word = 0;
+	while (str[i] != '\0')
 	{
-		t++;
-		i++;
+		nb_letter = 0;
+		while (str[i] == c && str[i] != '\0')
+			i++;
+		while (str[i] != c && str[i] != '\0')
+		{
+			nb_letter++;
+			i++;
+		}
+		if (nb_letter > 0)
+		{
+			strs[count_word] = malloc(sizeof(char) * (nb_letter + 1));
+			if (str == NULL)
+				return (0);
+			count_word++;
+		}
 	}
-	return (t);
+	return (1);
 }
 
-static char	**ft_free(char **final, int j)
+static void	ft_fill_strs(char **strs, char *str, char c)
 {
-	while (j-- > 0)
-		free(final[j]);
-	free(final);
-	return (NULL);
+	int		i;
+	int		nb_letter;
+	int		count_word;
+
+	i = 0;
+	count_word = 0;
+	while (str[i] != '\0')
+	{
+		nb_letter = 0;
+		while (str[i] == c && str[i] != '\0')
+			i++;
+		while (str[i] != c && str[i] != '\0')
+		{
+			strs[count_word][nb_letter] = str[i];
+			nb_letter++;
+			i++;
+		}
+		if (nb_letter > 0)
+		{
+			strs[count_word][nb_letter] = '\0';
+			count_word++;
+		}
+	}
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int		j;
-	int		word;
-	char	**final;
-	int		size;
-	int		i;
+	char	**strs;
+	char	*str;
+	int		nbr_word;
 
-	i = 0;
-	word = ft_count(s, c);
-	final = (char **)malloc(sizeof(char *) * (word + 1));
-	if (!final)
+	if (!s)
 		return (NULL);
-	j = -1;
-	while (++j < word)
-	{
-		while (s[i] == c)
-			i++;
-		size = ft_size(s, c, i);
-		final[j] = ft_substr(s, i, size);
-		if (!final[j])
-			return (ft_free(final, j));
-		i += size;
-	}
-	final[j] = 0;
-	return (final);
+	str = (char *)s;
+	nbr_word = ft_count_str(str, c);
+	strs = malloc(sizeof(char **) * (nbr_word + 1));
+	if (strs == NULL)
+		return (0);
+	strs[nbr_word] = NULL;
+	if (!ft_allocate_memory(strs, str, c))
+		return (0);
+	ft_fill_strs(strs, str, c);
+	return (strs);
 }

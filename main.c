@@ -6,7 +6,7 @@
 /*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:36:30 by cmansey           #+#    #+#             */
-/*   Updated: 2023/02/22 18:52:22 by cmansey          ###   ########.fr       */
+/*   Updated: 2023/02/28 12:53:37 by cmansey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	set_nb(int *nb_sta, int *nb_stb, int argc)
 int	main(int argc, char **argv)
 {
 	int		i;
+	int 	j;
 	long	*stack_a;
 	long	*stack_b;
 	int		*nb_sta;
@@ -30,26 +31,18 @@ int	main(int argc, char **argv)
 	nb_sta = malloc(sizeof(int));
 	nb_stb = malloc(sizeof(int));
 	if (!nb_sta || !nb_stb)
-	{
-		return (0);
-		free (nb_sta);
-		free (nb_stb);
-	}
-	set_nb(nb_sta, nb_stb, argc);
+		free_nb(nb_sta, nb_stb);
 	ft_check_args(argc, argv);
-	stack_a = malloc(sizeof(long) * (argc - 1));
-	stack_b = malloc(sizeof(long) * (argc - 1));
+	set_nb(nb_sta, nb_stb, argc);
+	stack_a = malloc(sizeof(long) * (size_stack(argc, argv)));
+	stack_b = malloc(sizeof(long) * (size_stack(argc, argv)));
 	if (!stack_a || !stack_b)
-	{
-		return (0);
-		free (stack_a);
-		free (stack_b);
-	}
+		free_stack(stack_a, stack_b);
 	i = 1;
 	while (i != argc)
 	{
 		stack_a[i - 1] = ft_atoi(argv[i]);
-		stack_b[i - 1] = 0;
+		stack_b[i - 1] = '\0';
 			i++;
 	}
 	i = 0;
@@ -59,19 +52,19 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	if (argc > 3)
-		five_numbers(stack_a, stack_b, nb_sta, nb_stb);
+		four_numbers(stack_a, stack_b, nb_sta, nb_stb);
 	i = 0;
 	while (i != (argc -1))
 	{
 		printf("%ld\n", stack_a[i]);
 		i++;
 	}
-	/*j = 0;
+	j = 0;
 	while (j < i)
 	{
-		printf("%d\n", stack_b[j]);
+		printf("%ld\n", stack_b[j]);
 		j++;
-	}*/
+	}
 }
 
 /*{
