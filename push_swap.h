@@ -6,7 +6,7 @@
 /*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 10:45:51 by cmansey           #+#    #+#             */
-/*   Updated: 2023/02/28 15:13:01 by cmansey          ###   ########.fr       */
+/*   Updated: 2023/03/01 18:56:07 by cmansey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@
 void	ft_check_args(int argc, char **argv);
 void	free_nb(int *nb_sta, int *nb_stb);
 void	free_stack(long *stack_a, long *stack_b);
-void	free_stack_and_nb(long *stack_a, long *stack_b, int *nb_sta, int *nb_stb);
+void	free_all(long *stack_a, long *stack_b, int *nb_sta, int *nb_stb);
 int		size_stack(int argc, char **argv);
+int		check_order(long *sta, int *nb_sta);
+long	*normalize(int argc, char **argv, long *sta);
 
 void	swap_a(long *sta, int *nb_sta);
 void	push_a(long *sta, long *stb, int *nb_sta, int *nb_stb);

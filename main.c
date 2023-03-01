@@ -6,7 +6,7 @@
 /*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:36:30 by cmansey           #+#    #+#             */
-/*   Updated: 2023/02/28 15:21:52 by cmansey          ###   ########.fr       */
+/*   Updated: 2023/03/01 18:55:58 by cmansey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	set_nb(int *nb_sta, int *nb_stb, int argc)
 int	main(int argc, char **argv)
 {
 	int		i;
-	int 	j;
 	long	*stack_a;
 	long	*stack_b;
 	int		*nb_sta;
@@ -37,15 +36,14 @@ int	main(int argc, char **argv)
 	stack_b = malloc(sizeof(long) * (size_stack(argc, argv)));
 	if (!stack_a || !stack_b)
 		free_stack(stack_a, stack_b);
+	stack_a = normalize(argc, argv, stack_a);
 	i = 1;
 	while (i != argc)
 	{
-		stack_a[i - 1] = ft_atoi(argv[i]);
 		stack_b[i - 1] = '\0';
 			i++;
 	}
-	/*if ((seperating_input_numbers(stack_a, numbers_in_stack_a, argv) == -1) || (is_stack_sorted(stack_a, numbers_in_stack_a) == 0))
-		free_stack_and_nb(stack_a, stack_b, nb_sta, nb_stb);*/
+	i = 0;
 	if ((*nb_sta == 2) && (stack_a[0] > stack_a[1]))
 		rotate_a(stack_a, nb_sta);
 	else if (*nb_sta == 3)
@@ -54,12 +52,19 @@ int	main(int argc, char **argv)
 		four_numbers(stack_a, stack_b, nb_sta, nb_stb);
 	else if (*nb_sta == 5)
 		five_numbers(stack_a, stack_b, nb_sta, nb_stb);
-	/*else
-		six_and_more(stack_a, stack_b, nb_sta, nb_stb);
-	free_stack_and_nb(stack_a, stack_b, nb_sta, nb_stb);
-	return (0);*/
-
+	else
+		six_and_more(sta, stb, nb_sta, nb_stb);
 	i = 0;
+	while (i != (argc -1))
+	{
+		printf("%ld\n", stack_a[i]);
+		i++;
+	}
+	free_all(stack_a, stack_b, nb_sta, nb_stb);
+	return (0);
+}
+
+	/*i = 0;
 	while (i != (argc -1))
 	{
 		printf("%ld\n", stack_a[i]);
@@ -71,8 +76,7 @@ int	main(int argc, char **argv)
 		printf("%ld\n", stack_b[j]);
 		j++;
 	}
-}
-
+}*/
 /*{
 	if (argc == 1)
 		exit(0);
