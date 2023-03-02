@@ -1,39 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   essai.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 18:17:12 by cmansey           #+#    #+#             */
-/*   Updated: 2023/03/02 11:37:53 by cmansey          ###   ########.fr       */
+/*   Created: 2023/03/02 11:32:19 by cmansey           #+#    #+#             */
+/*   Updated: 2023/03/02 11:37:19 by cmansey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	size_stack(int argc, char **argv)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 1;
-	if (argc == 2)
-	{
-		while (argv[1][i] != '\0')
-		{
-			if (argv[1][i] == ' ')
-			{
-				j++;
-				i++;
-			}
-		}
-	}
-	else
-		j = argc - 1;
-	return (j);
-}
+#include <stdio.h>
 
 int	check_order(long *sta, int *nb_sta)
 {
@@ -50,7 +27,19 @@ int	check_order(long *sta, int *nb_sta)
 			j++;
 		}
 		else
+		{
+			printf("La liste n'est pas triée");
 			return (1);
+		}
 	}
+	printf("La liste est triée");
 	return (0);
+}
+
+int	main(void)
+{
+	long sta[] = {0, 2, 3, 4, 5};
+	int nb_sta[] = {5};
+	check_order(sta, nb_sta);
+	return 0;
 }
