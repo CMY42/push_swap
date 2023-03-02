@@ -6,11 +6,25 @@
 /*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 10:16:49 by cmansey           #+#    #+#             */
-/*   Updated: 2023/02/27 19:12:48 by cmansey          ###   ########.fr       */
+/*   Updated: 2023/03/02 17:58:27 by cmansey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*static int	ft_order(int tmp, char **arg, int i)
+{
+	while ((i < **arg) && (j <= *nb_sta))
+	{
+		if (tmp < tmp + 1)
+		{
+			i++;
+		}
+		else
+			return (1);
+	}
+	return (0);
+}*/
 
 static int	ft_check_double(int tmp, char **arg, int i)
 {
@@ -47,9 +61,9 @@ static int	ft_check_ifnum(char *num)
 
 void	ft_check_args(int argc, char **argv)
 {
-	int			i;
-	long int	tmp;
-	char		**arg;
+	int		i;
+	long	tmp;
+	char	**arg;
 
 	i = 1;
 	if (argc == 2)
@@ -58,13 +72,17 @@ void	ft_check_args(int argc, char **argv)
 		arg = argv;
 	while (arg[i])
 	{
-		tmp = ft_atoi(arg[i]);
-		if (!ft_check_ifnum(arg[i]))
-			write(2, "Error/n", 6);
-		if (ft_check_double(tmp, arg, i))
-			write(2, "Error/n", 6);
+		tmp = ft_atol(arg[i]);
+		if ((!ft_check_ifnum(arg[i])) || (ft_check_double(tmp, arg, i)))
+		{
+			write(2, "Error\n", 6);
+			exit (0);
+		}
 		if ((tmp < -2147483648) || (tmp > 2147483647))
-			write(2, "Error/n", 6);
+		{
+			write(2, "Error\n", 6);
+			exit (0);
+		}
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 10:45:51 by cmansey           #+#    #+#             */
-/*   Updated: 2023/03/01 18:56:07 by cmansey          ###   ########.fr       */
+/*   Updated: 2023/03/02 17:20:43 by cmansey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	free_all(long *stack_a, long *stack_b, int *nb_sta, int *nb_stb);
 int		size_stack(int argc, char **argv);
 int		check_order(long *sta, int *nb_sta);
 long	*normalize(int argc, char **argv, long *sta);
+long	*fill_stack_b(int argc, long *stack_b);
 
 void	swap_a(long *sta, int *nb_sta);
 void	push_a(long *sta, long *stb, int *nb_sta, int *nb_stb);

@@ -6,11 +6,47 @@
 /*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 18:17:12 by cmansey           #+#    #+#             */
-/*   Updated: 2023/03/02 11:37:53 by cmansey          ###   ########.fr       */
+/*   Updated: 2023/03/02 16:10:11 by cmansey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+long	*normalize(int argc, char **argv, long *sta)
+{
+	int		i;
+	int		j;
+	long	counter;
+
+	i = 1;
+	while (i < argc)
+	{
+		j = 1;
+		counter = 0;
+		while (j < argc)
+		{
+			if (ft_atoi(argv[i]) > ft_atoi(argv[j]))
+				counter++;
+			j++;
+		}
+		sta[i - 1] = counter;
+		i++;
+	}
+	return (sta);
+}
+
+long	*fill_stack_b(int argc, long *stack_b)
+{
+	int	i;
+
+	i = 1;
+	while (i != argc)
+	{
+		stack_b[i - 1] = '\0';
+			i++;
+	}
+	return (stack_b);
+}
 
 int	size_stack(int argc, char **argv)
 {
