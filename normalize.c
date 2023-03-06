@@ -6,7 +6,7 @@
 /*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 12:51:41 by cmansey           #+#    #+#             */
-/*   Updated: 2023/03/01 17:28:37 by cmansey          ###   ########.fr       */
+/*   Updated: 2023/03/06 17:44:33 by cmansey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ long	*normalize(int argc, char **argv, long *sta)
 		counter = 0;
 		while (j < argc)
 		{
-			if (ft_atoi(argv[i]) > ft_atoi(argv[j]))
+			if (ft_atol(argv[i]) > ft_atol(argv[j]))
 				counter++;
 			j++;
 		}

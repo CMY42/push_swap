@@ -6,7 +6,7 @@
 /*   By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 18:17:12 by cmansey           #+#    #+#             */
-/*   Updated: 2023/03/02 16:10:11 by cmansey          ###   ########.fr       */
+/*   Updated: 2023/03/06 17:48:33 by cmansey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,20 +73,23 @@ int	size_stack(int argc, char **argv)
 
 int	check_order(long *sta, int *nb_sta)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	long	max;
 
-	i = 0;
-	j = 1;
-	while ((i < *nb_sta) && (j <= *nb_sta))
+	i = 1;
+	j = 0;
+	max = sta[0];
+	while (i < *nb_sta)
 	{
-		if (sta[i] < sta[j])
+		if (sta[i] > max)
 		{
-			i++;
+			max = sta[i];
 			j++;
 		}
-		else
-			return (1);
+		i++;
 	}
-	return (0);
+	if (j == *nb_sta - 1)
+		return (0);
+	return (1);
 }

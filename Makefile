@@ -6,14 +6,14 @@
 #    By: cmansey <marvin@42lausanne.ch>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 12:01:18 by cmansey           #+#    #+#              #
-#    Updated: 2023/03/02 14:41:01 by cmansey          ###   ########.fr        #
+#    Updated: 2023/03/06 17:39:33 by cmansey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 SRCS = main.c check_args.c utils.c moves_swap.c moves_push.c moves_rotate.c moves_rev_rotate.c \
-three_numbers.c four_numbers.c five_numbers.c six_and_more.c free.c
+three_numbers.c four_numbers.c five_numbers.c six_and_more.c free.c ft_split_str.c
 
 all: $(NAME)
 
